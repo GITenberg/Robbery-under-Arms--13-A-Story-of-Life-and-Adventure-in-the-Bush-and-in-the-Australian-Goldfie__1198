@@ -1,0 +1,41 @@
+_repo: Robbery-under-Arms--13-A-Story-of-Life-and-Adventure-in-the-Bush-and-in-the-Australian-Goldfie__1198
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Boldrewood, Rolf
+    alias: Browne, Thomas Alexander
+    birthdate: 1826
+    deathdate: 1915
+    gutenberg_agent_id: '549'
+    url: http://www.gutenberg.org/2009/agents/549
+    wikipedia: http://en.wikipedia.org/wiki/Rolf_Boldrewood
+description: "Robbery Under Arms is a novel by Thomas Alexander Browne, published\
+  \ under his pseudonym Rolf Boldrewood. It was first published in serialised form\
+  \ by The Sydney Mail between July 1882 and August 1883, then in three volumes in\
+  \ London in 1888. It was edited into a single volume in 1889 as part of Macmillan's\
+  \ Colonial Library series and has not been out of print since.\nIt is considered\
+  \ a classic of Australian colonial literature, along with Marcus Clarke's For the\
+  \ Term of his Natural Life, and has inspired numerous adaptations in film, television\
+  \ and theatre.\n From Wikipedia (CC BY-SA)."
+gutenberg_bookshelf: Australia
+gutenberg_issued: '1998-02-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '1198'
+  wikidata: Q7340827
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcc 'PR'
+- !lcsh 'Frontier and pioneer life -- Australia -- Fiction'
+- !lcsh 'Bushrangers -- Australia -- Fiction'
+- !lcsh 'Australia -- Gold discoveries -- Fiction'
+- !lcsh 'Gold mines and mining -- Australia -- Fiction'
+- GITenberg
+title: "Robbery under Arms\r\nA Story of Life and Adventure in the Bush and in the\
+  \ Australian Goldfields"
+url: http://www.gutenberg.org/ebooks/1198
+wikipedia:
+- https://en.wikipedia.org/wiki/Robbery_Under_Arms
