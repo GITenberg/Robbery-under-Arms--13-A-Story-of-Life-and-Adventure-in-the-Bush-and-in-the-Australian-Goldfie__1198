@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: PjcqP/arjhFCtSe+Leh6SyoltK9uuDcJuawF3Wpucb20W4Tg7YqHey0lC1Xx/PIFLZj8bfL81WA4fo/ewlpybyy/ad2dkAv9NYjcWXUd48h6cvTyzDMp5JkuhG+4+II1ht9oGsCtBT2M2XEurx+PtFG3DLFyO4cAK+N+LnHHd4BX7kKgruygm9KyYljxPyfmfT/OHc48iD/SDw1Pb6Vu4p74UoHNIPHJZhFaByO8cqMA5TeEfCD1oPSIPkJmAy6J5SNlaqKm5k7IEGW51hSXv33w7LocLcZxJWKdvI2gZWLVvd3AwB6L2MS6pm5wO/eK3P7yE0szDuhIisfSvucvpQlTsK3UK5IVIb4Ir8EIcPypT/bLnvYvH4a93foOMQeyiJqF8gSMe4m8M/hZKh1QQ4IVmAgh3psUkia/cCtL5a5NjwR6Vo4BRD/zmo9fwVJMsOzHws19R9MtHGLPXbbOZz0SJrhgAUxN3I5pTLEbV0DjqOZ7vx+MC+yDuyBNAeRRhVhinFlfdUUlugXcm9sv0FJ1S/ZGOz2gNFZwwgKnJSnj2chQAX4Qua0v25DR/418aZFGl7bDi+7DYVhsUBByIPcYjQkDmvZrifZ+ZCFLVPaSxY1iPq3P7MY6TO/Wbbrim5XKt3oM1LSe57pu3lNZ4tGJ9xb6Jclj7zrCk7Ba78o=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/Robbery-under-Arms--13-A-Story-of-Life-and-Adventure-in-the-Bush-and-in-the-Australian-Goldfie__1198
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
